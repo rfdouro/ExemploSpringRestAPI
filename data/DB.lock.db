@@ -1,0 +1,6 @@
+#FileLock
+#Fri Sep 13 13:22:27 BRT 2019
+hostName=PES1003.dnpm.net
+id=16d2b6ebd03a0331bdd332445666477d9a3d349c6ca
+method=file
+server=192.168.173.2\:64486

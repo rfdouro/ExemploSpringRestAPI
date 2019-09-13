@@ -30,7 +30,12 @@ public class PessoaController {
 
  @GetMapping("/pessoas")
  public List<Pessoa> getPessoas() {
-  return repositorio.findAll();
+  return repositorio.findAllByOrderByNome();
+ }
+ 
+ @GetMapping("/pessoas/nome/{nome}")
+ public List<Pessoa> getPessoas(@PathVariable(name = "nome") String nome) {
+  return repositorio.findByNome(nome);
  }
 
  @GetMapping("/pessoas/{id}")
@@ -48,7 +53,7 @@ public class PessoaController {
   pessoa.setNome(nome);
   return repositorio.save(pessoa);
  }
-
+ 
  @PostMapping("/pessoas")
  public Pessoa createPessoa(@Valid @RequestBody Pessoa pessoa) {
   return repositorio.save(pessoa);

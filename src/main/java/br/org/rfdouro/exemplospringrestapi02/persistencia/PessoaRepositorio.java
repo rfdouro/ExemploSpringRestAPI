@@ -4,6 +4,7 @@
 package br.org.rfdouro.exemplospringrestapi02.persistencia;
 
 import br.org.rfdouro.exemplospringrestapi02.modelo.Pessoa;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,5 +14,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface PessoaRepositorio extends JpaRepository<Pessoa, Long> {
- 
+ List<Pessoa> findByNome(String nome);
+ List<Pessoa> findAllByOrderByNome();
 }
