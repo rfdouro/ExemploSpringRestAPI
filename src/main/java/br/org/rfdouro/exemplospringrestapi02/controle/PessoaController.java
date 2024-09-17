@@ -6,7 +6,7 @@ package br.org.rfdouro.exemplospringrestapi02.controle;
 import br.org.rfdouro.exemplospringrestapi02.modelo.Pessoa;
 import br.org.rfdouro.exemplospringrestapi02.persistencia.PessoaRepositorio;
 import java.util.List;
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
