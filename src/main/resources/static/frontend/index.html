@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset='utf-8'>
+ <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+ <title>Cadastro de pessoas</title>
+ <meta name='viewport' content='width=device-width, initial-scale=1'>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.5.12/vue.global.prod.min.js"></script>
+ <link href="styles/main.css" rel="stylesheet" />
+</head>
+
+<body>
+ <div id="app">
+  <h1>{{titulo}}</h1>
+  <fieldset>
+   <legend>{{titulocad}}</legend>
+   <label>Nome:
+    <input type="text" v-model="pessoa.nome" />
+   </label>
+   <button @click="salvaPessoa">Salvar</button>
+  </fieldset>
+  <table>
+   <thead>
+    <tr>
+     <th>ID</th>
+     <th>Nome</th>
+     <th></th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr v-for="p in pessoas">
+     <td>{{p.id}}</td>
+     <td>{{p.nome}}</td>
+     <td><a href="#" @click="excluiPessoa(p.id)">Excluir</a></td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <script>
+  Vue.createApp({
+   data() {
+    return {
+     titulo: 'Cadastro de Pessoas',
+     titulocad: 'Pessoa',
+     pessoa: {
+      id: null,
+      nome: null
+     },
+     pessoas: []
+    };
+   },
+   mounted() {
+    this.selecionaPessoas();
+   },
+   methods: {
+    selecionaPessoas() {
+     fetch('/api/v1/pessoas', {
+      method: 'GET'
+     }).then(r => {
+      return r.json();
+     }).then(j => {
+      console.log(j);
+      this.pessoas = j;
+     })
+    },
+    salvaPessoa() {
+     fetch('/api/v1/pessoas', {
+      method: 'POST',
+      headers: {
+       'Accept': 'application/json',
+       'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(this.pessoa)
+     }).then(r => {
+      console.log(r);
+      this.selecionaPessoas();
+     })
+    },
+    excluiPessoa(id) {
+     fetch(`/api/v1/pessoas/delete/${id}`, {
+      method: 'GET'
+     }).then(r => {
+      console.log(r);
+      this.selecionaPessoas();
+     })
+    }
+   }
+  }).mount("#app");
+ </script>
+</body>
+
+</html>

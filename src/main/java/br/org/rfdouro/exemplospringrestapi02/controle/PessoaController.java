@@ -75,4 +75,17 @@ public class PessoaController {
   return repositorio.save(pessoa);
  }
 
+ // método que recebe um ID no caminho da url e exclui a entidade
+ @GetMapping("/pessoas/delete/{id}")
+ public ResponseEntity<Pessoa> deletePessoaById(@PathVariable(value = "id") Long pessoaId) throws Exception {
+  Pessoa pessoa = repositorio
+    .findById(pessoaId)
+    // caso não seja encontrada sera gerada uma exceção
+    .orElseThrow(() -> new Exception("Pessoa not found on :: " + pessoaId));
+  // exclui a pessoa
+  repositorio.delete(pessoa);
+
+  return ResponseEntity.ok().body(pessoa);
+ }
+
 }
