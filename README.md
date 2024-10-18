@@ -11,5 +11,5 @@ Os códigos seguem com comentários. Observe
  * https://spring.io/guides/gs/rest-service/
  * https://spring.io/guides/gs/accessing-data-rest/
  * https://docs.spring.io/spring-data/jpa/reference/repositories/query-methods-details.html
- * 
+ * https://www.baeldung.com/database-auditing-jpa
 
