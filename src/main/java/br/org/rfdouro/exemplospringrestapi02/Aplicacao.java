@@ -24,6 +24,7 @@ public class Aplicacao {
 
  /*
 	 * objeto gerenciado pelo Spring que adiciona informações à documentação
+		* essas informações são adicionadas à página do swagger
 	 */
 	@Bean
 	public OpenAPI customOpenAPI() {
