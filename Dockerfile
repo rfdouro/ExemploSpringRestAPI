@@ -21,10 +21,10 @@ RUN mkdir data
 
 EXPOSE 8080
 
-COPY --from=build /target/ExemploSpringRestAPI.war app.war
+COPY --from=build /target/ExemploSpringRestAPI.jar app.jar
 
 #RUN echo $SUPABASE_DATASOURCE_URL
 #RUN echo $SUPABASE_USER
 
 #ENTRYPOINT [ "sh", "-c", "echo $SUPABASE_DATASOURCE_URL" ]
-ENTRYPOINT [ "java", "-jar", "app.war" ]
+ENTRYPOINT [ "java", "-jar", "app.jar" ]
