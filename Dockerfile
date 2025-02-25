@@ -21,7 +21,7 @@ RUN mkdir data
 
 EXPOSE 8080
 
-COPY --from=build /target/demossr.war app.war
+COPY --from=build /target/ExemploSpringRestAPI.war app.war
 
 #RUN echo $SUPABASE_DATASOURCE_URL
 #RUN echo $SUPABASE_USER
