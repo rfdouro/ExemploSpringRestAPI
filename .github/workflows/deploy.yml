@@ -1,0 +1,32 @@
+name: Build e Deploy ExemploSpringRESTAPI
+
+on:
+  push:
+    branches:
+      - master  # Altere para o branch que você deseja usar
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted  # Usa o runner auto-hospedado
+
+    steps:
+      # Passo 1: Checkout do repositório
+      - name: Checar o código
+        uses: actions/checkout@v3
+
+      # Passo 2: Configurar Java
+      - name: Configurar java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # Passo 3: Buildar a aplicação com Maven
+      - name: Buildar com Maven
+        run: mvn clean package
+
+      # Passo 4: Executar a aplicação Spring Boot
+      - name: Executar a aplicação
+        run: |
+          pkill -f "java -jar" || true  # Encerra a aplicação atual (se estiver rodando)
+          nohup java -jar target/ExemploSpringRestAPI.jar > app.log 2>&1 &
