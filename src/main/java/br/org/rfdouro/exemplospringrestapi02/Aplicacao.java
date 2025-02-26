@@ -32,7 +32,7 @@ public class Aplicacao {
 				.info(new Info()
 						.title("Servidor de cadastro - DEMO")
 						.version("1.0.0")
-						.contact(new Contact().email("rfdouro@gmail.com").name("Rômulo Douro"))
+						.contact(new Contact().email("rfdouro@gmail.com").name("Rômulo F. Douro"))
 						.description("<h1>Exemplo de REST API com cadastro de pessoas</h1><p>Código disponível no "
 						+ "<a href='https://github.com/rfdouro/ExemploSpringRestAPI' target='_blank'>Github</a></p>"));
 	}
