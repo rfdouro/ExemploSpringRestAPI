@@ -28,5 +28,7 @@ jobs:
       # Passo 4: Executar a aplicação Spring Boot
       - name: Executar a aplicação
         run: |
-          pkill -f "java -jar" || true  # Encerra a aplicação atual (se estiver rodando )
-          nohup java -jar /root/actions-runner/_work/ExemploSpringRestAPI/ExemploSpringRestAPI/target/ExemploSpringRestAPI.jar
+          # pkill -f "java -jar" || true  # Encerra a aplicação atual (se estiver rodando )
+          # nohup java -jar /root/actions-runner/_work/ExemploSpringRestAPI/ExemploSpringRestAPI/target/ExemploSpringRestAPI.jar
+          systemctl stop exemploapi
+          systemctl start exemploapi
