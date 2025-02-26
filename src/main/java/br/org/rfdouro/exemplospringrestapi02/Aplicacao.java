@@ -30,7 +30,7 @@ public class Aplicacao {
 	public OpenAPI customOpenAPI() {
 		return new OpenAPI()
 				.info(new Info()
-						.title("Servidor de cadastro")
+						.title("Servidor de cadastro - DEMO")
 						.version("1.0.0")
 						.contact(new Contact().email("rfdouro@gmail.com").name("Rômulo Douro"))
 						.description("<h1>Exemplo de REST API com cadastro de pessoas</h1><p>Código disponível no "
