@@ -36,4 +36,17 @@ public class Aplicacao {
 						.description("<h1>Exemplo de REST API com cadastro de pessoas</h1><p>Código disponível no "
 						+ "<a href='https://github.com/rfdouro/ExemploSpringRestAPI' target='_blank'>Github</a></p>"));
 	}
+
+	@Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("*")  // Permite todas origens
+                        .allowedMethods("*")   // Permite todos métodos (GET, POST, etc)
+                        .allowedHeaders("*");  // Permite todos headers
+            }
+        };
+    }
 }
